@@ -1,5 +1,6 @@
-#TODO
-##Major
+# TODO
+## Major
 * Make Modules for Each Command
-##Minor
+## Minor
 * Make Code Better
+* Make Readme Better
