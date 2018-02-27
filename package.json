@@ -4,7 +4,6 @@
   "description": "My Discord Bot",
   "main": "bot.js",
   "dependencies": {
-    "colors": "^1.1.2",
     "discord.js": "^11.3.0"
   },
   "devDependencies": {},
