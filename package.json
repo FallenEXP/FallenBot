@@ -1,0 +1,24 @@
+{
+  "name": "fallenbot",
+  "version": "0.0.1",
+  "description": "My Discord Bot",
+  "main": "bot.js",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "discord.js": "^11.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FallenEXP/FallenBot.git"
+  },
+  "author": "FallenXP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FallenEXP/FallenBot/issues"
+  },
+  "homepage": "https://github.com/FallenEXP/FallenBot#readme"
+}
