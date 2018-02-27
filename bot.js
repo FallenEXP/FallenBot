@@ -117,7 +117,7 @@ client.on("message", message => {
               name: client.user.username,
               icon_url: client.user.avatarURL
             },
-            title: "All EXPBot Commands",
+            title: "All FallenBot Commands",
             description: "Use f! infront of every command.",
             fields: [{
                 name: "hello",
