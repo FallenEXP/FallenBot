@@ -103,8 +103,8 @@ client.on("message", message => {
     }
     
     
-    if((message.content.trim() === "e!")) {
-        message.channel.send("You did not enter a command. Usage: `e![command]`");
+    if((message.content.trim() === "f!")) {
+        message.channel.send("You did not enter a command. Usage: `f![command]`");
         logActions(message, `${sender} has not entered a command.`);
     }
     
@@ -368,7 +368,6 @@ client.on("message", message => {
         }
     }
     
-    //Russian Roulette
     if(commandIs("56328569138161", message)) {
         var dead = Math.floor(Math.random() * 2) + 1;
         
