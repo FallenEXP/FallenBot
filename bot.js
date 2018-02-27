@@ -32,7 +32,7 @@ function clean(text) {
 
 //Log Actions
 function logActions(message,info) {
-    let prefix = message.guild?message.guild.name + " >> " + message.channel.name:"DirectMessage";
+    let prefix = message.guild?message.guild.name + " >> " + "#" + message.channel.name:"DirectMessage";
     console.log(prefix + " >> " + message.author.username + " >> " + info);
 }
 
@@ -67,7 +67,7 @@ client.on("guildDelete", (guild) => {
 });
 
 updateCount = () => {
-    client.user.setGame(`f!help in ${client.guilds.size} Servers`);
+    client.user.setActivity(`f!help in ${client.guilds.size} Servers`);
 }
 
 //----------------------------------------------------------------------------------------------------
