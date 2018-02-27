@@ -1,6 +1,5 @@
 //Requires
 Discord = require("discord.js");
-color = require("colors");
 
 client = new Discord.Client();
 
@@ -33,8 +32,9 @@ function clean(text) {
 
 //Log Actions
 function logActions(message,info) {
-    let prefix = message.guild?message.guild.name.green + ":" + message.channel.name.yellow:"DirectMessage".cyan;
-    console.log(prefix + ":" + message.author.username.magenta + " >> " + info);
+    let prefix = message.guild?message.guild.name + " >> " + message.channel.name.yellow:"DirectMessage";
+    console.log(prefix + " >> " + message.author.username + " >> " + info);
+    console.log(prefix + " >> " + message.author.username + " >> " + info);
 }
 
 //Channel Handles
@@ -68,7 +68,7 @@ client.on("guildDelete", (guild) => {
 });
 
 updateCount = () => {
-    client.user.setGame(`e!help in ${client.guilds.size} Servers`);
+    client.user.setGame(`f!help in ${client.guilds.size} Servers`);
 }
 
 //----------------------------------------------------------------------------------------------------
@@ -225,7 +225,7 @@ client.on("message", message => {
     }
     
     if(commandIs("invite", message)) {
-        message.channel.send("Use this link to invite me to other servers! https://discordapp.com/oauth2/authorize?client_id=322118792475836418&scope=bot&permissions=35840");
+        message.channel.send("Use this link to invite me to other servers! https://discordapp.com/oauth2/authorize?client_id=418153623424466954&scope=bot&permissions=35840");
         logActions(message, `Generated an invite for ${sender}.`);
     }
     
