@@ -160,7 +160,7 @@ client.on("message", message => {
                 value: "Ask the 8 ball a question."
             },
             {
-                name: "IN DEVELOPMENT",
+                name: "Russian Roulette",
                 value: "IN DEVELOPMENT"
             },
             {
@@ -367,6 +367,8 @@ client.on("message", message => {
             }
         }
     }
+    
+    //Russian Roulette
     
     if(commandIs("56328569138161", message)) {
         var dead = Math.floor(Math.random() * 2) + 1;
