@@ -32,8 +32,7 @@ function clean(text) {
 
 //Log Actions
 function logActions(message,info) {
-    let prefix = message.guild?message.guild.name + " >> " + message.channel.name.yellow:"DirectMessage";
-    console.log(prefix + " >> " + message.author.username + " >> " + info);
+    let prefix = message.guild?message.guild.name + " >> " + message.channel.name:"DirectMessage";
     console.log(prefix + " >> " + message.author.username + " >> " + info);
 }
 
