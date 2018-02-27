@@ -118,7 +118,7 @@ client.on("message", message => {
               icon_url: client.user.avatarURL
             },
             title: "All EXPBot Commands",
-            description: "Use e! infront of every command.",
+            description: "Use f! infront of every command.",
             fields: [{
                 name: "hello",
                 value: "Hello!"
