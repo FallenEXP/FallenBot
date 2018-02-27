@@ -207,7 +207,7 @@ client.on("message", message => {
     }
     
     if(commandIs("ping", message)) {
-        message.channel.send("PONG! :ping_pong:");
+        message.channel.send("PONG! :ping_pong: " + client.pings[0]);
         logActions(message, `PONGED, ${sender}!`);
     }
     
