@@ -598,7 +598,7 @@ client.on("message", message => {
                 logActions(message, `${sender} did not enter an argument for sendPublicMessage command`)
             }else {
                 try {
-                    guildList.forEach(guild => guild.defaultChannel.send("messageToSend"));
+                    guildList.forEach(guild => guild.defaultChannel.send(message));
                 } catch (err) {
                     console.log("Could not send message to " + guild.name);
                 }
