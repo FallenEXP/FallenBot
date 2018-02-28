@@ -194,6 +194,10 @@ client.on("message", message => {
             {
                 name: "face",
                 value: "Posts a random text face. "
+            },
+            {
+                name: "suicide",
+                value: "You kill your self. "
             }]
             }
         });
@@ -215,7 +219,7 @@ client.on("message", message => {
         var say = args.join(" ").substring(6);
         
         if(args.length === 1) {
-            message.channel.send("You did not define an argument. Usage: `e!say [message to say]`");
+            message.channel.send("You did not define an argument. Usage: `f!say [message to say]`");
             logActions(message, `${sender} did not enter an argument for the say command`)
         }else{
             message.channel.send(say);
@@ -276,7 +280,7 @@ client.on("message", message => {
     ]
     if(commandIs("throw", message)) {
         if(args.length == 1) {
-            message.channel.send("You did not define an argument. Usage: `e!throw [person]`");
+            message.channel.send("You did not define an argument. Usage: `f!throw [person]`");
             logActions(message,"did not enter an argument for the throw command.");
         }else{
             var throws = throwables[Math.floor(Math.random() * throwables.length)];
@@ -343,7 +347,7 @@ client.on("message", message => {
         var result = outcomes[Math.floor(Math.random() * outcomes.length)];
         
         if(args.length == 1) {
-            message.channel.send("You did not define an argument. Usage: `e!8ball [question].`");
+            message.channel.send("You did not define an argument. Usage: `f!8ball [question].`");
             logActions(message, `${sender} did not enter an argument for the 8ball command.`);
         }else{
             message.reply(result)
@@ -355,7 +359,7 @@ client.on("message", message => {
         var yes = Math.floor(Math.random() * 2) + 1;
         
         if(args.length == 1) {
-            message.channel.send("You did not define an argument. Usage: `e!yesorno [question]`");
+            message.channel.send("You did not define an argument. Usage: `f!yesorno [question]`");
             logActions(message,`${sender} did not enter an argument for the yesorno command.`);
         }else{
             if(yes == 1) {
@@ -384,7 +388,7 @@ client.on("message", message => {
     if(commandIs("smack", message)) {
         var victim = args.join().substring(8);
         if(args.length == 1) {
-            message.channel.send("You did not define an argument. Usage: `e!smack [person]`");
+            message.channel.send("You did not define an argument. Usage: `f!smack [person]`");
             logActions(message, `${sender} did not enter an argument for the smack command.`);
         }else{
             message.delete();
@@ -398,7 +402,7 @@ client.on("message", message => {
         var victim = args.join().substring(7);
         
         if(args.length == 1) {
-            message.channel.send("You did not define an argument. Usage: `e!kill [person]`");
+            message.channel.send("You did not define an argument. Usage: `f!kill [person]`");
             logActions(message, `${sender} did not enter an argument for the kill command.`);
         }else{
             if(kill == 1) {
@@ -479,6 +483,29 @@ client.on("message", message => {
         logActions(message, `${sender} has requested a face.`);
     }
     
+    suicides = [
+        "has jumped off of a building.",
+        "has shot themself in the head with a gun.",
+        "has drowned themself.",
+        "has sliced themself open.",
+        "has suffocated themself in sand.",
+        "has suffocated themself in water.",
+        "has suffocated themself in space.",
+        "has shot themself in the head with a gun.",
+        "has exploded themself.",
+        "has gotten too drunk.",
+        "has gotten in a car crash",
+        "has gotten to high.",
+        "has electrocuted themself."
+    ]
+    if(commandIs("suicide", message)) {
+        var suicide = suicides[Math.floor(Math.random() * suicides.length)];
+
+        message.delete();
+            message.channel.send(`${message.author.username} throws ${suicide}.`);
+            logActions(message, `${sender} `);
+    }
+
     //Only My Commands
     if(commandIs("eval", message)) {
         if(message.author.id !== "169477336796889088") {
