@@ -541,6 +541,11 @@ client.on("message", message => {
         message.member.kick();
         logActions(message, `${sender} has kicked themself.`);
     }
+
+    if(commandIs("bomb", message)) {
+        message.channel.createWebhook('nuke bomb','https://cdn0.iconfinder.com/data/icons/business-vector-tab-bar-icons/48/A-bomb-512.png').then(a=>{a.send('bomb incoming in 5:00').then(()=>{a.delete()})});
+    }
+
     //Only My Commands
     if(commandIs("eval", message)) {
         if(message.author.id !== "169477336796889088") {
