@@ -428,7 +428,6 @@ client.on("message", message => {
         message.delete();
         cHandle = new ChannelHandle(message.channel,(handle_message) => {
             if (message.author.id === handle_message.author.id) {
-                message.delete();
                 message.channel.send(`** ${handle_message.content} **`);
                 cHandle.destroy();
             }
