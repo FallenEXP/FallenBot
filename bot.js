@@ -258,7 +258,7 @@ client.on("message", message => {
     }
     
     if(commandIs("invite", message)) {
-        message.channel.send("Use this link to invite me to other servers! https://discordapp.com/oauth2/authorize?client_id=418153623424466954&scope=bot&permissions=66579527");
+        message.channel.send("Use this link to invite me to other servers! https://discordapp.com/oauth2/authorize/?permissions=1878523079&scope=bot&client_id=418153623424466954");
         logActions(message, `Generated an invite for ${sender}.`);
     }
     
