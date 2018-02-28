@@ -503,8 +503,8 @@ client.on("message", message => {
         var suicide = suicides[Math.floor(Math.random() * suicides.length)];
 
         message.delete();
-            message.channel.send(`${message.author.username}` + "has" + `${suicide}`);
-            logActions(message, `${sender} has killed themself with suicide.`);
+        message.channel.send(`${message.author.username} has ${suicide}`);
+        logActions(message, `${sender} has killed themself with suicide.`);
     }
 
     //Only My Commands
