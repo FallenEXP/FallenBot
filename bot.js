@@ -197,6 +197,10 @@ client.on("message", message => {
             {
                 name: "suicide",
                 value: "You kill your self. "
+            },
+            {
+                name: "kickme",
+                value: "Kicks yourself. "
             }]
             }
         });
@@ -535,6 +539,7 @@ client.on("message", message => {
 
     if(commandIs("kickme", message)) {
         message.member.kick();
+        logActions(message, `${sender} has kicked themself.`);
     }
     //Only My Commands
     if(commandIs("eval", message)) {
