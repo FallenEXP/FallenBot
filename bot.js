@@ -311,7 +311,7 @@ client.on("message", message => {
         "7"
     ]
     if(commandIs("meme", message)) {
-        var meme = memes[Math.floor(Math.random() * memes.length) + 1];
+        var meme = memes[Math.floor(Math.random() * memes.length)];
         
         message.channel.send(`Meme #${meme}.`, {file: `memes/${meme}.png`});
         logActions(message,` Sent meme #${meme} to ${message.author.username}.`);
@@ -369,7 +369,6 @@ client.on("message", message => {
     }
     
     //Russian Roulette
-    
     if(commandIs("56328569138161", message)) {
         var dead = Math.floor(Math.random() * 2) + 1;
         
