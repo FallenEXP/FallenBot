@@ -502,7 +502,7 @@ client.on("message", message => {
         var suicide = suicides[Math.floor(Math.random() * suicides.length)];
 
         message.delete();
-            message.channel.send(`${message.author.username} throws ${suicide}.`);
+            message.channel.send(`${message.author.username} ${suicide}.`);
             logActions(message, `${sender} `);
     }
 
