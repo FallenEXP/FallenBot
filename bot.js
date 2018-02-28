@@ -279,7 +279,7 @@ client.on("message", message => {
             message.channel.send("You did not define an argument. Usage: `e!throw [person]`");
             logActions(message,"did not enter an argument for the throw command.");
         }else{
-            var throws = throwables[Math.floor(Math.random() * throwables.length) + 1];
+            var throws = throwables[Math.floor(Math.random() * throwables.length + 1)];
             var victim = args.join().substring(8);
 
             message.delete();
