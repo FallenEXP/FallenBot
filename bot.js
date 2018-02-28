@@ -196,7 +196,7 @@ client.on("message", message => {
             },
             {
                 name: "suicide",
-                value: "You kill your self. "
+                value: "You kill yourself. "
             },
             {
                 name: "kickme",
