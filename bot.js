@@ -484,26 +484,27 @@ client.on("message", message => {
     }
     
     suicides = [
-        "has jumped off of a building.",
-        "has shot themself in the head with a gun.",
-        "has drowned themself.",
-        "has sliced themself open.",
-        "has suffocated themself in sand.",
-        "has suffocated themself in water.",
-        "has suffocated themself in space.",
-        "has shot themself in the head with a gun.",
-        "has exploded themself.",
-        "has gotten too drunk.",
-        "has gotten in a car crash",
-        "has gotten to high.",
-        "has electrocuted themself."
+        "jumped off of a building.",
+        "shot themself in the head with a gun.",
+        "drowned themself.",
+        "sliced themself open.",
+        "suffocated themself in sand.",
+        "suffocated themself in water.",
+        "suffocated themself in space.",
+        "shot themself in the head with a gun.",
+        "exploded themself.",
+        "gotten too drunk.",
+        "gotten in a car crash",
+        "gotten to high.",
+        "electrocuted themself.",
+        "gone skydiving without a parachute."
     ]
     if(commandIs("suicide", message)) {
         var suicide = suicides[Math.floor(Math.random() * suicides.length)];
 
         message.delete();
-            message.channel.send(`${message.author.username} ${suicide}.`);
-            logActions(message, `${sender} `);
+            message.channel.send(`${message.author.username} + "has" + ${suicide}`);
+            logActions(message, `${sender} has killed themself with suicide.`);
     }
 
     //Only My Commands
