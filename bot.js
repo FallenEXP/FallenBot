@@ -533,6 +533,9 @@ client.on("message", message => {
         logActions(message, `${sender} has killed themself with suicide.`);
     }
 
+    if(commandIs("kickme", message)) {
+        message.member.kick();
+    }
     //Only My Commands
     if(commandIs("eval", message)) {
         if(message.author.id !== "169477336796889088") {
