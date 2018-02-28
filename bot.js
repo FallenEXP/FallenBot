@@ -584,6 +584,28 @@ client.on("message", message => {
             logActions(message, `${sender} used the servers command`);
         } 
     }
+
+    if(commandIs("sendPublicMessage", message)) {
+        if(message.author.id !== "169477336796889088") {
+            message.reply("You do not have permission to run this command.");
+            logActions(message, `${sender} did not have permission to run the sendPublicMessage command`);
+            return;
+        }else {
+            var message = args.join(" ").substring(20);
+        
+            if(args.length === 1) {
+                message.channel.send("You did not define an argument. Usage: `f!sendPublicMessage [message to send]`");
+                logActions(message, `${sender} did not enter an argument for sendPublicMessage command`)
+            }else {
+                try {
+                    guildList.forEach(guild => guild.defaultChannel.send("messageToSend"));
+                } catch (err) {
+                    console.log("Could not send message to " + guild.name);
+                }
+            }
+            logActions(message, `${sender} used the sendPublicMessage command`);
+        } 
+    }
     
 });
 //END COMMANDS
