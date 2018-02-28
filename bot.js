@@ -102,7 +102,6 @@ client.on("message", message => {
         }
     }
     
-    
     if((message.content.trim() === "f!")) {
         message.channel.send("You did not enter a command. Usage: `f![command]`");
         logActions(message, `${sender} has not entered a command.`);
@@ -426,9 +425,10 @@ client.on("message", message => {
     }
     
     if(commandIs("bold", message)) {
-        message.channel.send("Your next message will be said in bold.");
+        message.delete();
         cHandle = new ChannelHandle(message.channel,(handle_message) => {
             if (message.author.id === handle_message.author.id) {
+                message.delete();
                 message.channel.send(`** ${handle_message.content} **`);
                 cHandle.destroy();
             }
