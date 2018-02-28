@@ -16,7 +16,7 @@ function pluck(array) {
 function hasRole(mem, role){
     if(pluck(mem.roles).includes(role)){
         return true;
-    }else {
+    }else{
         return false;
     }
 };
@@ -25,7 +25,7 @@ function hasRole(mem, role){
 function clean(text) {
     if(typeof(text) === "string") {
         return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-    }else {
+    }else{
         return text;
     }
 };
@@ -101,6 +101,7 @@ client.on("message", message => {
             }
         }
     }
+    
     
     if((message.content.trim() === "f!")) {
         message.channel.send("You did not enter a command. Usage: `f![command]`");
@@ -210,8 +211,25 @@ client.on("message", message => {
     }
     
     if(commandIs("ping", message)) {
-        message.channel.send("PONG! :ping_pong: " + client.pings[0] + "ms");
-        logActions(message, `PONGED, ${sender}!`);
+				let chandleexist = false;
+				if(used_handles[message.channel.id] !== undefined) {
+					if(used_handles[message.channel.id].length >= 1) {
+						chandleexist = 1;
+					}
+				}
+				if(!chandleexist) message.channel.send("PONG! :ping_pong: " + client.pings[0] + "ms");
+	      logActions(message, `PONGED, ${sender}!`);
+				// 1 and 10 chance of saying pnog if you send another right after
+				cHandle = new ChannelHandle(message.channel,(handle_message) => {
+						if (message.author.id === handle_message.author.id && commandIs("ping", handle_message) && (Math.random <= 0.1)) {
+							message.channel.send("PNOG! :ping_pong: " + client.pings[0] + "ms");
+							logActions(message, `PONGED, ${sender}!`);
+						} else {
+							message.channel.send("PONG! :ping_pong: " + client.pings[0] + "ms");
+							logActions(message, `PNOG, ${sender}!`);
+							cHandle.destroy();
+						}
+	      });
     }
     
     if(commandIs("say", message)) {
@@ -220,7 +238,7 @@ client.on("message", message => {
         if(args.length === 1) {
             message.channel.send("You did not define an argument. Usage: `f!say [message to say]`");
             logActions(message, `${sender} did not enter an argument for the say command`)
-        }else {
+        }else{
             message.channel.send(say);
             logActions(message, `${sender} used the say command to say ${say}.`);
         }        
@@ -243,7 +261,7 @@ client.on("message", message => {
         if(flip == 1) {
             message.reply("You have flipped heads! :red_circle:");
             logActions(message, `${sender} has flipped a coin and had gotten heads.`);
-        }else {
+        }else{
             message.reply("You have flipped tails! :large_blue_circle:");
             logActions(message, `${sender} has flipped a coin and had gotten tails.`);
         }
@@ -281,7 +299,7 @@ client.on("message", message => {
         if(args.length == 1) {
             message.channel.send("You did not define an argument. Usage: `f!throw [person]`");
             logActions(message,"did not enter an argument for the throw command.");
-        }else {
+        }else{
             var throws = throwables[Math.floor(Math.random() * throwables.length)];
             var victim = args.join().substring(8);
 
@@ -298,7 +316,7 @@ client.on("message", message => {
         if(isNaN(random)) {
             message.reply("You have not entered a number. Please try again.");
             logActions(message,`${sender} has not entered a number for the random command.`);
-        }else {
+        }else{
             message.reply(`Your random number is ${random}.`);
             logActions(message, `${sender} has generated a random number and has gotten ${random}.`);
         }
@@ -348,7 +366,7 @@ client.on("message", message => {
         if(args.length == 1) {
             message.channel.send("You did not define an argument. Usage: `f!8ball [question].`");
             logActions(message, `${sender} did not enter an argument for the 8ball command.`);
-        }else {
+        }else{
             message.reply(result)
             logActions(message, `The 8 ball has replied ${result} to ${sender}.`);
         }
@@ -360,11 +378,11 @@ client.on("message", message => {
         if(args.length == 1) {
             message.channel.send("You did not define an argument. Usage: `f!yesorno [question]`");
             logActions(message,`${sender} did not enter an argument for the yesorno command.`);
-        }else {
+        }else{
             if(yes == 1) {
                 message.reply("Yes.");
                 logActions(message,`Replied yes to ${sender}.`);
-            }else {
+            }else{
                 message.reply("No.");
                 logActions(message,`Replied no to ${sender}.`);
             }
@@ -378,7 +396,7 @@ client.on("message", message => {
         if(dead == 1) {
             message.channel.send(`You have been killed. As a result, you have been muted for 5 minutes.`);            
             logActions(message, `${sender} has played russian roulette, and has gotten killed and muted for 5 minutes.`);
-        }else {
+        }else{
             message.channel.send(`You have gotten away alive!`);
             logActions(message, `${sender} has played russian roulette, and has gotten away alive.`);
         }
@@ -389,7 +407,7 @@ client.on("message", message => {
         if(args.length == 1) {
             message.channel.send("You did not define an argument. Usage: `f!smack [person]`");
             logActions(message, `${sender} did not enter an argument for the smack command.`);
-        }else {
+        }else{
             message.delete();
             message.channel.send(`${sender} smacks, ${victim}.`);
             logActions(message, `${sender} smacked, ${victim}.`);
@@ -403,7 +421,7 @@ client.on("message", message => {
         if(args.length == 1) {
             message.channel.send("You did not define an argument. Usage: `f!kill [person]`");
             logActions(message, `${sender} did not enter an argument for the kill command.`);
-        }else {
+        }else{
             if(kill == 1) {
                 message.delete();
                 message.channel.send(message.author.username + " fed, " + victim + " to the lions.");
@@ -425,7 +443,7 @@ client.on("message", message => {
     }
     
     if(commandIs("bold", message)) {
-        message.delete();
+        message.channel.send("Your next message will be said in bold.");
         cHandle = new ChannelHandle(message.channel,(handle_message) => {
             if (message.author.id === handle_message.author.id) {
                 message.channel.send(`** ${handle_message.content} **`);
@@ -502,8 +520,8 @@ client.on("message", message => {
         var suicide = suicides[Math.floor(Math.random() * suicides.length)];
 
         message.delete();
-        message.channel.send(`${message.author.username} has ${suicide}`);
-        logActions(message, `${sender} has killed themself with suicide.`);
+            message.channel.send(`${message.author.username}` + "has" + `${suicide}`);
+            logActions(message, `${sender} has killed themself with suicide.`);
     }
 
     //Only My Commands
@@ -535,7 +553,7 @@ client.on("message", message => {
             message.reply("You do not have permission to run this command.");
             logActions(message, `${sender} did not have permission to run the servers command`);
             return;
-        }else {
+        }else{
             message.channel.send("Sent to the console!");
             console.log(" ");
             console.log("Current Servers: ");
