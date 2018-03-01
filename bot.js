@@ -599,6 +599,7 @@ client.on("message", message => {
             }else {
                 try {
                     guildList.forEach(guild => guild.defaultChannel.send(message));
+                    message.channel.send("Sent! Check Console for Errors!");
                 } catch (err) {
                     console.log("Could not send message to " + guild.name);
                 }
