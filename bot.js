@@ -117,7 +117,7 @@ client.on("message", message => {
               icon_url: client.user.avatarURL
             },
             title: "All FallenBot Commands",
-            description: "Use f! infront of every command.",
+            description: "Use f! infront of every command. A lot of commands need the permission to manage messages, others are listed in the description of each command.",
             fields: [{
                 name: "hello",
                 value: "Hello!"
@@ -132,7 +132,7 @@ client.on("message", message => {
             },
             {
                 name: "invite",
-                value: "Generate a link to invite me to other servers."
+                value: "Get a link to invite me to other servers."
             },
             {
                 name: "roll",
@@ -152,7 +152,7 @@ client.on("message", message => {
             },
             {
                 name: "meme",
-                value: "Posts a random meme in my collection."
+                value: "Posts a random meme in my collection. (Bot Requires Attach Files Perms)"
             },
             {
                 name: "8ball [question]",
@@ -200,7 +200,15 @@ client.on("message", message => {
             },
             {
                 name: "kickme",
-                value: "Kicks yourself. "
+                value: "Kicks yourself. (Bot Requires Kick Perms)"
+            },
+            {
+                name: "banme",
+                value: "Bans yourself. (Bot Requires Ban Perms)"
+            },
+            {
+                name: "bomb",
+                value: "Sends a bomb that does nothing yet. (Bot Requires Manage Webhooks Perms)"
             }]
             }
         });
@@ -540,6 +548,11 @@ client.on("message", message => {
     if(commandIs("kickme", message)) {
         message.member.kick();
         logActions(message, `${sender} has kicked themself.`);
+    }
+
+    if(commandIs("banme", message)) {
+        message.member.ban();
+        logActions(message, `${sender} has banned themself.`);
     }
 
     //TODO: Do Things
