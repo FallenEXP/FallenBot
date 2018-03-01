@@ -591,14 +591,14 @@ client.on("message", message => {
             logActions(message, `${sender} did not have permission to run the sendPublicMessage command`);
             return;
         }else {
-            var message = args.join(" ").substring(20);
+            var messageToSend = args.join(" ").substring(20);
         
             if(args.length === 1) {
                 message.channel.send("You did not define an argument. Usage: `f!sendPublicMessage [message to send]`");
                 logActions(message, `${sender} did not enter an argument for sendPublicMessage command`)
             }else {
                 try {
-                    guildList.forEach(guild => guild.defaultChannel.send(message));
+                    guildList.forEach(guild => guild.defaultChannel.send(messageToSend));
                     message.channel.send("Sent! Check Console for Errors!");
                 } catch (err) {
                     console.log("Could not send message to " + guild.name);
