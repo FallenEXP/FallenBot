@@ -234,10 +234,10 @@ client.on("message", message => {
                     if(Math.random() <= 0.1) pnog = true;
                 }
                 if(pnog) {
-                    message.channel.send("PNOG! :ping_pong: " + client.pings[0] + "ms");
+                    message.channel.send(`PNOG! :ping_pong: ${client.pings[0]}ms`);
                     logActions(message, `PNOGED, ${sender}!`);
                 }else {
-                    message.channel.send("PONG! :ping_pong: " + client.pings[0] + "ms");
+                    message.channel.send(`PONG! :ping_pong: ${client.pings[0]}ms`);
                     logActions(message, `PONGED, ${sender}!`);
                 }
             }
