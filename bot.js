@@ -543,7 +543,7 @@ client.on("message", message => {
     }
 
     if(commandIs("bomb", message)) {
-        message.channel.createWebhook('nuke bomb','https://cdn0.iconfinder.com/data/icons/business-vector-tab-bar-icons/48/A-bomb-512.png').then(a=>{a.send('bomb incoming in 5:00').then(()=>{a.delete()})});
+        message.channel.createWebhook('Nuke Bomb','https://cdn0.iconfinder.com/data/icons/business-vector-tab-bar-icons/48/A-bomb-512.png').then(a=>{a.send('Bomb Incoming in 5:00').then(()=>{a.delete()})});
     }
 
     //Only My Commands
