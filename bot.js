@@ -2,8 +2,8 @@
 Discord = require("discord.js");
 client = new Discord.Client();
 
-//Modules
-const testModule = require("./modules/testMod.js");
+const BotCore = require('reputation-core');
+let bot = new BotCore({modulePath: 'modules', token: process.env.token});
 
 //If Command Is
 function commandIs(str, msg) {
@@ -40,7 +40,6 @@ function logActions(message,info) {
 
 //Channel Handles
 used_handles = {};
-
 ChannelHandle = function(channel,call) {
     this.channel = channel;
     this.call = call;
@@ -72,14 +71,18 @@ updateCount = () => {
     client.user.setActivity(`f!help in ${client.guilds.size} Servers`);
 }
 
-//----------------------------------------------------------------------------------------------------
-
-client.on("ready", () => {
-    console.log("The Bot is Ready!");
+displayServers = () => {
     console.log(" ");
     console.log("Current Servers: ");
     client.guilds.forEach(g=>console.log(g.name));
     console.log(" ");
+}
+
+//----------------------------------------------------------------------------------------------------
+
+client.on("ready", () => {
+    console.log("The Bot is Ready!");
+    displayServers();
     updateCount();
 });
 
@@ -563,7 +566,8 @@ client.on("message", message => {
     }
 
     if(commandIs("testMod", message)) {
-        message.channel.send(testModule);
+        var thisName = args.join().substring(11);
+        testModule(thisName);
     }
 
     //Only My Commands
@@ -597,10 +601,7 @@ client.on("message", message => {
             return;
         }else {
             message.channel.send("Sent to the console!");
-            console.log(" ");
-            console.log("Current Servers: ");
-            client.guilds.forEach(g =>console.log(g.name));
-            console.log(" ");
+            displayServers();
             logActions(message, `${sender} used the servers command`);
         } 
     }
@@ -630,5 +631,3 @@ client.on("message", message => {
     
 });
 //END COMMANDS
-
-client.login(process.env.token);
