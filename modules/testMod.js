@@ -1,3 +1,1 @@
-module.exports = (yourName) => {
-    return "The Test Worked";
-}
+module.exports = "The Test Worked!";

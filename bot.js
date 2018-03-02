@@ -563,8 +563,7 @@ client.on("message", message => {
     }
 
     if(commandIs("testMod", message)) {
-        var thisName = args.join().substring(11);
-        message.channel.send(testModule(thisName));
+        message.channel.send(testModule);
     }
 
     //Only My Commands
