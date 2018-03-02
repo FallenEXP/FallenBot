@@ -1,7 +1,9 @@
 //Requires
 Discord = require("discord.js");
-
 client = new Discord.Client();
+
+//Modules
+const helloModule = require("./modules/hello.js");
 
 //If Command Is
 function commandIs(str, msg) {
@@ -560,6 +562,11 @@ client.on("message", message => {
         message.channel.createWebhook('Nuke Bomb','https://cdn0.iconfinder.com/data/icons/business-vector-tab-bar-icons/48/A-bomb-512.png').then(a=>{a.send('Bomb Incoming in 5:00').then(()=>{a.delete()})});
     }
 
+    if(commandIs("helloMod", message)) {
+        var name = args.join().substring(11);
+        helloModule(name);
+    }
+
     //Only My Commands
     if(commandIs("eval", message)) {
         if(message.author.id !== "169477336796889088") {
@@ -605,7 +612,7 @@ client.on("message", message => {
             logActions(message, `${sender} did not have permission to run the sendPublicMessage command`);
             return;
         }else {
-            var messageToSend = args.join(" ").substring(20);
+            var messageToSend = args.join().substring(20);
         
             if(args.length === 1) {
                 message.channel.send("You did not define an argument. Usage: `f!sendPublicMessage [message to send]`");
