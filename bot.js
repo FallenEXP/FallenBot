@@ -1,9 +1,15 @@
 //Requires
+const fs = require('fs');
+
 Discord = require("discord.js");
 client = new Discord.Client();
 
 const BotCore = require('reputation-core');
-let bot = new BotCore({modulePath: 'modules', token: process.env.token});
+let config = Object.assign({
+	modulePath: 'modules',
+	token: process.env.token
+}, JSON.parse(fs.readFileSync('config.json')));
+let bot = new BotCore(config);
 
 //If Command Is
 function commandIs(str, msg) {
