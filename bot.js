@@ -16,12 +16,10 @@ bot.on('ready', () => {
 
 
 
-var args = msg.content.split(/[ ]+/);
-
 //Log Actions
-function logActions(message,info) {
-    let prefix = message.guild?message.guild.name + " >> " + "#" + message.channel.name:"DirectMessage";
-    console.log(prefix + " >> " + message.author.username + " >> " + info);
+function logActions(msg,info) {
+    let prefix = msg.guild?msg.guild.name + " >> " + "#" + msg.channel.name:"DirectMessage";
+    console.log(msg + " >> " + msg.author.username + " >> " + info);
 }
 
 //Get Rid of @s and `s

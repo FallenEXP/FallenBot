@@ -1,7 +1,8 @@
 exports.id = 'say';
 exports.onLoad = api => {
     api.commands.add('say', msg => {
-        var say = args.join(" ").substring(6);
+        var args = msg.content.split(/[ ]+/);
+        var say = args.join().substring(6);
         
         if(args.length === 1) {
             msg.channel.send("You did not define an argument. Usage: `f!say [message to say]`");
