@@ -16,6 +16,8 @@ bot.on('ready', () => {
 
 
 
+var args = msg.content.split(/[ ]+/);
+
 //Log Actions
 function logActions(message,info) {
     let prefix = message.guild?message.guild.name + " >> " + "#" + message.channel.name:"DirectMessage";
