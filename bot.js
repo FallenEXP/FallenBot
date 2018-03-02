@@ -10,8 +10,8 @@ let bot = new BotCore(config);
 bot.on('ready', () => {
 	console.log("The Bot is Ready!");
 	console.log(`Logged in as ${bot.client.user.tag}`);
-	updateCount();
-	displayServers();
+	// updateCount();
+	// displayServers();
 });
 
 
