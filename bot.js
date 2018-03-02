@@ -70,26 +70,26 @@ ChannelHandle.prototype.destroy = function() {
 };
 
 //Joined Guild
-client.on("guildCreate", (guild) => {   
+bot.on("guildCreate", (guild) => {   
     console.log("Joined new guild, " + guild.name);
     updateCount();
 });
 
 //Left Guild
-client.on("guildDelete", (guild) => {
+bot.on("guildDelete", (guild) => {
     console.log("Left guild, " + guild.name);
     updateCount();
 });
 
 //Update Server Count
 updateCount = () => {
-    client.user.setActivity(`f!help in ${client.guilds.size} Servers`);
+    bot.user.setActivity(`f!help in ${client.guilds.size} Servers`);
 }
 
 //Display Server
 displayServers = () => {
     console.log(" ");
     console.log("Current Servers: ");
-    client.guilds.forEach(g=>console.log(g.name));
+    bot.guilds.forEach(g=>console.log(g.name));
     console.log(" ");
 }
