@@ -3,7 +3,7 @@ Discord = require("discord.js");
 client = new Discord.Client();
 
 //Modules
-const helloModule = require("./modules/hello.js");
+const testModule = require("./modules/testMod.js");
 
 //If Command Is
 function commandIs(str, msg) {
@@ -562,9 +562,9 @@ client.on("message", message => {
         message.channel.createWebhook('Nuke Bomb','https://cdn0.iconfinder.com/data/icons/business-vector-tab-bar-icons/48/A-bomb-512.png').then(a=>{a.send('Bomb Incoming in 5:00').then(()=>{a.delete()})});
     }
 
-    if(commandIs("helloMod", message)) {
-        var name = args.join().substring(11);
-        helloModule(name);
+    if(commandIs("testMod", message)) {
+        var thisName = args.join().substring(11);
+        testModule(thisName);
     }
 
     //Only My Commands
