@@ -69,17 +69,17 @@ ChannelHandle.prototype.destroy = function() {
     used_handles[this.channel.id].splice(this.marker);
 };
 
-//Joined Guild
-bot.on("guildCreate", (guild) => {   
-    console.log("Joined new guild, " + guild.name);
-    updateCount();
-});
+// //Joined Guild
+// bot.on("guildCreate", (guild) => {   
+//     console.log("Joined new guild, " + guild.name);
+//     updateCount();
+// });
 
-//Left Guild
-bot.on("guildDelete", (guild) => {
-    console.log("Left guild, " + guild.name);
-    updateCount();
-});
+// //Left Guild
+// bot.on("guildDelete", (guild) => {
+//     console.log("Left guild, " + guild.name);
+//     updateCount();
+// });
 
 // //Update Server Count
 // updateCount = () => {
