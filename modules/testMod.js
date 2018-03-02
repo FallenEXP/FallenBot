@@ -1,3 +1,3 @@
 module.exports = (yourName) => {
-    return `Hello ${yourName}!`;
+    message.channel.send(`Hello ${yourName}!`)
 }
