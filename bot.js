@@ -81,10 +81,10 @@ bot.on("guildDelete", (guild) => {
     updateCount();
 });
 
-//Update Server Count
-updateCount = () => {
-    bot.user.setActivity(`f!help in ${client.guilds.size} Servers`);
-}
+// //Update Server Count
+// updateCount = () => {
+//     bot.user.setActivity(`f!help in ${client.guilds.size} Servers`);
+// }
 
 //Display Server
 displayServers = () => {
