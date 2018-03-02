@@ -1,10 +1,6 @@
-//Requires
+const BotCore = require('reputation-core');
 const fs = require('fs');
 
-Discord = require("discord.js");
-client = new Discord.Client();
-
-const BotCore = require('reputation-core');
 let config = Object.assign({
 	modulePath: 'modules',
 	token: process.env.token
