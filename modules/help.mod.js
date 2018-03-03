@@ -6,8 +6,8 @@ exports.onLoad = api => {
             embed: {
             color: 3447003,
             author: {
-              name: client.user.username,
-              icon_url: client.user.avatarURL
+              name: api.client.user.username,
+              icon_url: api.client.user.avatarURL
             },
             title: "All FallenBot Commands",
             description: "Use f! infront of every command. A lot of commands need the permission to manage messages, others are listed in the description of each command.",
