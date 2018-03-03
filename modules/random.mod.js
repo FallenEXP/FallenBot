@@ -6,7 +6,10 @@ exports.onLoad = api => {
         var max = args.join().substring(9);
         var random = Math.floor(Math.random() * max) + 1;
         
-        if(isNaN(random)) {
+        if(args.length == 1) {
+            msg.channel.send("You did not define an argument. Usage: `f!random [maximum].`");
+            // logActions(msg, `${sender} did not enter an argument for the 8ball command.`);
+        }else if(isNaN(random)) {
             msg.reply("You have not entered a number. Please try again.");
             // logActions(msg,`${sender} has not entered a number for the random command.`);
         }else {

@@ -26,16 +26,14 @@ exports.onLoad = api => {
             "Very Doubtful"
         ]
         
-        if(commandIs("8ball", msg)) {
-            var result = outcomes[Math.floor(Math.random() * outcomes.length)];
-            
-            if(args.length == 1) {
-                msg.channel.send("You did not define an argument. Usage: `f!8ball [question].`");
-                // logActions(msg, `${sender} did not enter an argument for the 8ball command.`);
-            }else {
-                msg.reply(result)
-                // logActions(msg, `The 8 ball has replied ${result} to ${sender}.`);
-            }
+        var result = outcomes[Math.floor(Math.random() * outcomes.length)];
+        
+        if(args.length == 1) {
+            msg.channel.send("You did not define an argument. Usage: `f!8ball [question].`");
+            // logActions(msg, `${sender} did not enter an argument for the 8ball command.`);
+        }else {
+            msg.reply(result)
+            // logActions(msg, `The 8 ball has replied ${result} to ${sender}.`);
         }
     })
 };

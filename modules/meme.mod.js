@@ -11,11 +11,9 @@ exports.onLoad = api => {
             "7"
         ]
         
-        if(commandIs("meme", message)) {
-            var meme = memes[Math.floor(Math.random() * memes.length)];
-            
-            msg.channel.send(`Meme #${meme}.`, {file: `memes/${meme}.png`});
-            // logActions(msg,` Sent meme #${meme} to ${message.author.username}.`);
-        }
+        var meme = memes[Math.floor(Math.random() * memes.length)];
+        
+        msg.channel.send(`Meme #${meme}.`, {file: `memes/${meme}.png`});
+        // logActions(msg,` Sent meme #${meme} to ${message.author.username}.`);
     })
 };
