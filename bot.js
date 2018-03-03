@@ -25,19 +25,19 @@ function logActions(msg,info) {
     console.log(msg + " >> " + msg.author.username + " >> " + info);
 }
 
-// //Joined Guild
-// bot.on("guildCreate", (guild) => {   
-//     console.log("Joined new guild, " + guild.name);
-//     updateCount();
-// });
+//Joined Guild
+bot.client.on("guildCreate", (guild) => {   
+    console.log("Joined new guild, " + guild.name);
+    updateCount();
+});
 
-// //Left Guild
-// bot.on("guildDelete", (guild) => {
-//     console.log("Left guild, " + guild.name);
-//     updateCount();
-// });
+//Left Guild
+bot.client.on("guildDelete", (guild) => {
+    console.log("Left guild, " + guild.name);
+    updateCount();
+});
 
-// //Update Server Count
-// updateCount = () => {
-//     bot.user.setActivity(`f!help in ${client.guilds.size} Servers`);
-// }
+//Update Server Count
+updateCount = () => {
+    bot.user.setActivity(`f!help in ${bot.client.guilds.size} Servers`);
+}
