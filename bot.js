@@ -8,6 +8,7 @@ let config = Object.assign({
 let bot = new BotCore(config);
 
 bot.on('ready', () => {
+    console.log(" ");
 	console.log("The Bot is Ready!");
 	console.log(`Logged in as ${bot.client.user.tag}`);
     console.log(" ");
@@ -17,13 +18,13 @@ bot.on('ready', () => {
     updateCount();
 });
 
+//--------------------------------------------------------------------------------------------------------------------------
 
-
-//Log Actions
-function logActions(msg,info) {
-    let prefix = msg.guild?msg.guild.name + " >> " + "#" + msg.channel.name:"DirectMessage";
-    console.log(msg + " >> " + msg.author.username + " >> " + info);
-}
+// //Log Actions
+// function logActions(msg,info) {
+//     let prefix = msg.guild?msg.guild.name + " >> " + "#" + msg.channel.name:"DirectMessage";
+//     console.log(msg + " >> " + msg.author.username + " >> " + info);
+// }
 
 //Joined Guild
 bot.client.on("guildCreate", (guild) => {   
