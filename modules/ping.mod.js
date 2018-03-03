@@ -31,20 +31,18 @@ exports.onLoad = api => {
         }
 
         cHandle = new ChannelHandle(msg.channel,(handle_message) => {
-            if(commandIs("ping",handle_message)) {
-                let pnog = false;
+            let pnog = false;
 
-                if (msg.author.id === handle_message.author.id) {
-                    if(Math.random() <= 0.1) pnog = true;
-                }
-                
-                if(pnog) {
-                    msg.channel.send(`PNOG! :ping_pong: ${api.api.client.pings[0]}ms`);
-                    // logActions(msg, `PNOGED, ${sender}!`);
-                }else {
-                    msg.channel.send(`PONG! :ping_pong: ${api.client.pings[0]}ms`);
-                    // logActions(msg, `PONGED, ${sender}!`);
-                }
+            if (msg.author.id === handle_message.author.id) {
+                if(Math.random() <= 0.1) pnog = true;
+            }
+            
+            if(pnog) {
+                msg.channel.send(`PNOG! :ping_pong: ${api.api.client.pings[0]}ms`);
+                // logActions(msg, `PNOGED, ${sender}!`);
+            }else {
+                msg.channel.send(`PONG! :ping_pong: ${api.client.pings[0]}ms`);
+                // logActions(msg, `PONGED, ${sender}!`);
             }
 
             cHandle.destroy();

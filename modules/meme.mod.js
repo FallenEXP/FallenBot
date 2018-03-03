@@ -11,7 +11,6 @@ exports.onLoad = api => {
             "7"
         ]
         
-        msg.delete();
         var meme = memes[Math.floor(Math.random() * memes.length)];
         
         msg.channel.send(`Meme #${meme}.`, {file: `memes/${meme}.png`});
