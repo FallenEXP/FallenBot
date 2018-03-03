@@ -10,8 +10,11 @@ let bot = new BotCore(config);
 bot.on('ready', () => {
 	console.log("The Bot is Ready!");
 	console.log(`Logged in as ${bot.client.user.tag}`);
-	// updateCount();
-	// displayServers();
+    // console.log(" ");
+    // console.log("Current Servers: ");
+    // client.guilds.forEach(g =>console.log(g.name));
+    // console.log(" ");
+    // updateCount();
 });
 
 
@@ -21,53 +24,6 @@ function logActions(msg,info) {
     let prefix = msg.guild?msg.guild.name + " >> " + "#" + msg.channel.name:"DirectMessage";
     console.log(msg + " >> " + msg.author.username + " >> " + info);
 }
-
-//Get Rid of @s and `s
-function clean(text) {
-    if(typeof(text) === "string") {
-        return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-    }else {
-        return text;
-    }
-};
-
-//Channel Handles
-used_handles = {};
-
-ChannelHandle = function(channel,call) {
-    this.channel = channel;
-    this.call = call;
-    
-    if (!used_handles[channel.id]) {
-        used_handles[channel.id]=[];
-    }
-    
-    this.marker = used_handles[channel.id].length;
-    used_handles[channel.id].push(this);
-};
-
-ChannelHandle.prototype.destroy = function() {
-    used_handles[this.channel.id].splice(this.marker);
-};
-
-//Channel Handles
-used_handles = {};
-
-ChannelHandle = function(channel,call) {
-    this.channel = channel;
-    this.call = call;
-    
-    if (!used_handles[channel.id]) {
-        used_handles[channel.id]=[];
-    }
-    
-    this.marker = used_handles[channel.id].length;
-    used_handles[channel.id].push(this);
-};
-
-ChannelHandle.prototype.destroy = function() {
-    used_handles[this.channel.id].splice(this.marker);
-};
 
 // //Joined Guild
 // bot.on("guildCreate", (guild) => {   
@@ -85,11 +41,3 @@ ChannelHandle.prototype.destroy = function() {
 // updateCount = () => {
 //     bot.user.setActivity(`f!help in ${client.guilds.size} Servers`);
 // }
-
-//Display Server
-displayServers = () => {
-    console.log(" ");
-    console.log("Current Servers: ");
-    bot.guilds.forEach(g=>console.log(g.name));
-    console.log(" ");
-}

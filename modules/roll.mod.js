@@ -4,6 +4,6 @@ exports.onLoad = api => {
         var roll = Math.floor(Math.random() * 6) + 1;
         
         msg.reply(`You have rolled a ${roll} :game_die:`);
-        // logActions(message, `${sender} has rolled a die and has gotten ${roll}.`);
+        // logActions(msg, `${sender} has rolled a die and has gotten ${roll}.`);
     })
 };
