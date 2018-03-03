@@ -39,5 +39,5 @@ bot.client.on("guildDelete", (guild) => {
 
 //Update Server Count
 updateCount = () => {
-    bot.user.setActivity(`f!help in ${bot.client.guilds.size} Servers`);
+    bot.client.user.setActivity(`f!help in ${bot.client.guilds.size} Servers`);
 }
