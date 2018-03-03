@@ -27,6 +27,6 @@ exports.onLoad = api => {
             }
         });
         
-        logActions(msg, `${sender} has ran the bold command.`)
+        // logActions(msg, `${sender} has ran the bold command.`);
     })
 };
