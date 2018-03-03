@@ -1,6 +1,8 @@
 exports.id = 'sendpublicmessage';
 exports.onLoad = api => {
     api.commands.add('sendpublicmessage', msg => {
+        var args = msg.content.split(/[ ]+/);
+        
         if(msg.author.id !== "169477336796889088") {
             msg.reply("You do not have permission to run this command.");
             // logActions(message, `${sender} did not have permission to run the sendPublicMessage command`);
