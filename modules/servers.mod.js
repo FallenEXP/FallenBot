@@ -4,7 +4,7 @@ exports.onLoad = api => {
         msg.channel.send("Sent to the console!");
         console.log(" ");
         console.log("Current Servers: ");
-        client.guilds.forEach(g =>console.log(g.name));
+        api.client.guilds.forEach(g =>console.log(g.name));
         console.log(" ");
         // logActions(msg, `${sender} used the servers command.`);
     })

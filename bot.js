@@ -10,11 +10,11 @@ let bot = new BotCore(config);
 bot.on('ready', () => {
 	console.log("The Bot is Ready!");
 	console.log(`Logged in as ${bot.client.user.tag}`);
-    // console.log(" ");
-    // console.log("Current Servers: ");
-    // client.guilds.forEach(g =>console.log(g.name));
-    // console.log(" ");
-    // updateCount();
+    console.log(" ");
+    console.log("Current Servers: ");
+    bot.client.guilds.forEach(g =>console.log(g.name));
+    console.log(" ");
+    updateCount();
 });
 
 

@@ -26,7 +26,7 @@ exports.onLoad = api => {
         }
         
         if(!chandleexist) {
-            message.channel.send("PONG! :ping_pong: " + client.pings[0] + "ms");
+            message.channel.send("PONG! :ping_pong: " + api.client.pings[0] + "ms");
             logActions(message, `PONGED, ${sender}!`);
         }
 
@@ -37,10 +37,10 @@ exports.onLoad = api => {
                     if(Math.random() <= 0.1) pnog = true;
                 }
                 if(pnog) {
-                    message.channel.send(`PNOG! :ping_pong: ${client.pings[0]}ms`);
+                    message.channel.send(`PNOG! :ping_pong: ${api.api.client.pings[0]}ms`);
                     logActions(message, `PNOGED, ${sender}!`);
                 }else {
-                    message.channel.send(`PONG! :ping_pong: ${client.pings[0]}ms`);
+                    message.channel.send(`PONG! :ping_pong: ${api.client.pings[0]}ms`);
                     logActions(message, `PONGED, ${sender}!`);
                 }
             }
