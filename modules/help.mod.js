@@ -68,10 +68,6 @@ exports.onLoad = api => {
                 value: "Kill someone in a random way."
             },
             {
-                name: "bold",
-                value: "Your next message will be sent in bold. - Credit to ImDaveead for Code"
-            },
-            {
                 name: "lennyface",
                 value: "Posts a lenny in chat."
             },
