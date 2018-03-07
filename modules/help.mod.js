@@ -84,10 +84,6 @@ exports.onLoad = api => {
                 value: "Posts a random text face. "
             },
             {
-                name: "suicide",
-                value: "You kill yourself. "
-            },
-            {
                 name: "kickme",
                 value: "Kicks yourself. (Bot Requires Kick Perms)"
             },
